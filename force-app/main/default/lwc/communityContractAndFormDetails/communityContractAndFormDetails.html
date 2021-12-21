@@ -1,0 +1,27 @@
+<template>
+    <lightning-card if:true={contract}>
+        <h1 slot="title">{contractName}</h1>
+        <div class="slds-var-m-around_large">
+            <table style="width:200px" class="slds-var-m-around_medium">
+                <tr>
+                    <td>Signed By:</td>
+                    <td>{signedBy}</td>
+                </tr>
+                <tr if:true={dateSigned}>
+                    <td>Date Signed:</td>
+                    <td>
+                        <lightning-formatted-date-time value={dateSigned} year="numeric" month="long" day="2-digit"></lightning-formatted-date-time>
+                    </td>
+                </tr>
+                <tr if:true={validUntil}>
+                    <td>Valid Until:</td>
+                    <td>{validUntil}</td>
+                </tr>
+            </table>
+            <lightning-formatted-rich-text
+                value={waiverText}
+                class="slds-var-m-around_medium"
+            ></lightning-formatted-rich-text>
+        </div>
+    </lightning-card>
+</template>
